@@ -1,4 +1,4 @@
-package targetAutomationHomeWork;
+package targetHomeWork_01;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -8,7 +8,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class Deals {
+public class RegistryForm {
     static WebDriver driver;
     String browserName = "chrome";
     static String url = "https://www.target.com/";
@@ -35,37 +35,43 @@ public class Deals {
 
     }
     @Test   //pass
-    public static void testGetDealsForCustomer() throws InterruptedException {
-        //click on Deals for customer
-        driver.findElement(By.xpath("//*[@id=\"headerPrimary\"]/div[3]/a")).click();
-        Thread.sleep(2000);
+    public static void testGetRegistryFormForRegistryCustomer() throws InterruptedException {
+        //click on registry form for registry customer
+        driver.findElement(By.id("utilityNav-registries")).click();
+        Thread.sleep(3000);
 
-        //Verify SignIn
-        String expectedText = "Clearance";
-        String actualText = driver.findElement(By.xpath("//*[@id=\"overlay-8\"]/ul/li[4]/a/div")).getText();
+          //Verify Registry Form
+
+        String expectedText = "Celebrate any milestone";
+        String actualText = driver.findElement(By.xpath("//*[@id=\"__next\"]/div[4]/div[1]/h2")).getText();
         Thread.sleep(2000);
         System.out.println("Actual Text : " + actualText);
 
-        Assert.assertEquals(actualText, expectedText, "Groceries are not successful");
-        Thread.sleep(5000);
+        Assert.assertEquals(actualText, expectedText, " Celebrate any milestone not helpful");
+        Thread.sleep(3000);
         driver.close();
     }
-    @Test   //pass
-    public static void testGetTopDealsForCustomer() throws InterruptedException {
-        //click on Deals for customer
-        driver.findElement(By.xpath("//*[@id=\"headerPrimary\"]/div[3]/a")).click();
-        Thread.sleep(2000);
-        driver.findElement(By.xpath("//*[@id=\"overlay-8\"]/ul/li[1]/a/div/span")).click();
+    @Test//pass
+    public static void testGetRegistryFormForWedding() throws InterruptedException {
+        //click on registry form for registry customer
+        driver.findElement(By.id("utilityNav-registries")).click();
         Thread.sleep(2000);
 
-        //Verify SignIn
-        String expectedText = "Toy Deals";
-        String actualText = driver.findElement(By.xpath("//*[@id=\"pageBodyContainer\"]/div[1]/div/div[3]/div/div/div/div/div/div[4]/a/div[2]")).getText();
+        //click create wedding registry
+        driver.findElement(By.xpath("//*[@id=\"__next\"]/div[4]/div[1]/div/div[2]/div[2]/button")).click();
+        Thread.sleep(2000);
+
+        //Verify Registry Form For Wedding
+
+        String expectedText = "Get ready to build your new life together.";
+        String actualText = driver.findElement(By.xpath("//*[@id=\"__next\"]/div[3]/div[1]/div[2]/div[2]")).getText();
         Thread.sleep(2000);
         System.out.println("Actual Text : " + actualText);
 
-        Assert.assertEquals(actualText, expectedText, "Top Deals are not successful");
-        Thread.sleep(5000);
+        Assert.assertEquals(actualText, expectedText, " Wedding registry is not helpful");
+        Thread.sleep(3000);
         driver.close();
+
+
     }
 }

@@ -1,4 +1,4 @@
-package targetAutomationHomeWork;
+package targetHomeWork_01;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -46,11 +46,10 @@ public class SignIn_SignOut {
         driver.findElement(By.xpath("//*[@id=\"username\"]")).sendKeys("nadiaeti67@gmail.com");
         // Enter password
         Thread.sleep(3000);
-        driver.findElement(By.xpath("//*[@id=\"password\"]")).sendKeys("Nadiaaa7");
+        driver.findElement(By.xpath("//*[@id=\"password\"]")).sendKeys("Na7");
         Thread.sleep(2000);
         // Click on check box in keep me sign in button
         driver.findElement(By.xpath("//*[@id=\"__next\"]/div[2]/div/div[1]/div/div[2]/form/div[3]/label/div")).click();
-
         Thread.sleep(3000);
         // Click SignIn Button
         driver.findElement(By.cssSelector("#login")).click();
@@ -88,7 +87,6 @@ public class SignIn_SignOut {
         String actualText = driver.findElement(By.xpath("//*[@id=\"password--ErrorMessage\"]")).getText();
         Thread.sleep(2000);
         System.out.println("Actual Text : " + actualText);
-
         Assert.assertEquals(actualText, expectedText, "SignIn not successful");
         Thread.sleep(5000);
         driver.close();
